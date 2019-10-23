@@ -2,13 +2,14 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${HOMEPAGE}    www.google.com
+${HOMEPAGE}    https://www.google.co.th
 ${BROWSER}    Chrome
-${CS URL}    http://www.cs.kku.ac.th/
+${CS URL}    www.cs.kku.ac.th
 
 *** Test Cases ***
 Go To Homepage
-    Open Browser    ${CS URL}    ${BROWSER}
+    Open Browser    ${HOMEPAGE}    ${BROWSER}
 	Input Text    q    ${CS URL}
-	Submit Form    tsf
+	Submit Form
+	Wait Until Page Contains    CS KKU
     [Teardown]    Close Browser
